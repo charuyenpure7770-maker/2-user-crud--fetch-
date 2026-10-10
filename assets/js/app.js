@@ -282,7 +282,10 @@ Swal.fire({
      let getIndex = state.userArr.findIndex(obj=> obj.id === REMOVE_ID);
      state.userArr.splice(getIndex, 1);
      ele.closest("tr").remove();
-     setIndex();
+     let td = document.querySelectorAll("#userContainer tr td:first-child");
+     td.forEach((ele,i)=>{
+        ele.innerHTML = i+1;
+     })
     })
      .catch((err)=>{
         showSnackbar("Error updating user data", "error");
